@@ -34,10 +34,7 @@ A comprehensive tool for categorizing, processing, and enriching product data in
    
 <img width="487" height="501" alt="image" src="https://github.com/user-attachments/assets/68c269ca-69c4-4e5f-9baf-dd800e0ef749" />
 
-
-
-
-9. 🔄 Status Update
+8. 🔄 Status Update
 
 
 def update_task_status(task_key, status_text="pending", status_color="gray"):
