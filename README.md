@@ -37,20 +37,5 @@ A comprehensive tool for categorizing, processing, and enriching product data in
 <img width="487" height="501" alt="image" src="https://github.com/user-attachments/assets/68c269ca-69c4-4e5f-9baf-dd800e0ef749" />
 
 8. 🔄 Status Update
+<img width="647" height="378" alt="image" src="https://github.com/user-attachments/assets/c8d88321-9395-4920-8c42-e95c3f797d49" />
 
-
-def update_task_status(task_key, status_text="pending", status_color="gray"):
-    """Updates task status in the interface."""
-    label = task_status_labels.get(task_key)
-    if label:
-        label.config(text=status_text, fg=status_color)
-    window.update_idletasks()
-
-# Available statuses
-task_definitions = {
-    "file_selection": "1. File Selection:",
-    "pre_analysis": "2. Pre-analysis of Categories:",
-    "main_processing": "3. Product Classification:",
-    "video_download": "4. Video Download:",
-    "audio_generation": "5. Audio Generation:",
-}
