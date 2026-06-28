@@ -1,6 +1,8 @@
 Product_Organizer_Pandas
 A comprehensive tool for categorizing, processing, and enriching product data in Excel with a modern graphical interface.
 
+<img width="1192" height="698" alt="org" src="https://github.com/user-attachments/assets/8fb85da9-74ad-4734-ac3d-7b6973f36465" />
+
 ✨ Features ✅ Automatic classification with custom categories, 🔑 Manage categories and keywords, 📊 Detailed reports in Excel,🌐 HTML generation with product carousels, 🎬 Download YouTube videos (individual/playlist), 🎵 Convert video to audio, 🎶 Audio mixing with background music, 📁 Extract media URLs from various files,  Select Excel file, Configure categories and keywords, Classify products, Export reports or HTML, Download videos or add narration ⚠️ Requires FFmpeg installed
 
 📸 Code Snippets - Product Category Organizer 
