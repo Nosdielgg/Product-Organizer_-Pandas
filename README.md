@@ -15,15 +15,8 @@ A comprehensive tool for categorizing, processing, and enriching product data in
 1. 🏗️ Imports and Initial Structure
 
 
-import pandas as pd
-import tkinter as tk
-from tkinter import filedialog, messagebox
-from ttkbootstrap import Style
-from ttkbootstrap import Progressbar
-import yt_dlp
-from gtts import gTTS
-import subprocess
-from pydub import AudioSegment
+<img width="333" height="224" alt="image" src="https://github.com/user-attachments/assets/93be04d5-7b87-413a-8108-6a2350dcf2e4" />
+
 
 
 
