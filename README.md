@@ -4,37 +4,19 @@ A comprehensive tool for categorizing, processing, and enriching product data in
 ✨ Features
 ✅ Automatic classification with custom categories, 🔑 Manage categories and keywords, 📊 Detailed reports in Excel,🌐 HTML generation with product carousels, 🎬 Download YouTube videos (individual/playlist), 🎵 Convert video to audio, 🎶 Audio mixing with background music, 📁 Extract media URLs from various files,  Select Excel file, Configure categories and keywords, Classify products, Export reports or HTML, Download videos or add narration ⚠️ Requires FFmpeg installed
 
-
-
-
 📸 Code Snippets - Product Category Organizer 
-
-
-
 
 1. 🏗️ Imports and Initial Structure
 
-
 <img width="333" height="224" alt="image" src="https://github.com/user-attachments/assets/93be04d5-7b87-413a-8108-6a2350dcf2e4" />
-
-
-
-
-
-
-<p></p>
-
 
 2. 📊 Product Classification
 
 <img width="577" height="213" alt="image" src="https://github.com/user-attachments/assets/6257e6b3-1c91-48de-962e-528f5254239b" />
 
-<p></p>
-
 3. 🔄 Main Processing
 
 <img width="655" height="325" alt="image" src="https://github.com/user-attachments/assets/d3e21d32-fae5-4641-876c-d6b4917c68cc" />
-
 
 4. 🌐 YouTube Extraction
 
@@ -42,27 +24,9 @@ A comprehensive tool for categorizing, processing, and enriching product data in
 
 5. 🖥️ Graphical Interface
 
-# Interface with ttkbootstrap
-style = Style(theme="flatly")
-window = style.master
-window.title("Product Category Organizer")
-window.geometry("1200x750")
+<img width="714" height="365" alt="image" src="https://github.com/user-attachments/assets/63297b01-2f03-4bf3-9e5e-51060bbcde21" />
 
-# Header buttons
-create_header_button(button_frame, "Select File", select_file, "#3F51B5", 0, 0)
-create_header_button(button_frame, "Add Category", add_category, "#FFC107", 0, 2)
-create_header_button(button_frame, "Process", process_file, "#4CAF50", 2, 3)
-create_header_button(button_frame, "HTML (Videos)", generate_html_only_videos, "#FF9800", 1, 1)
-
-# Progress bar
-progress_bar = Progressbar(main_frame, length=400, 
-                          mode='determinate', bootstyle="success-striped")
-progress_bar.pack(pady=20)
-
-
-
-
-8. 📊 HTML Carousel Generation
+6. 📊 HTML Carousel Generation
 
 
 def execute_html_generation_in_thread(media_type, autoplay_delay_ms, save_path, status_key):
@@ -105,7 +69,7 @@ def execute_html_generation_in_thread(media_type, autoplay_delay_ms, save_path, 
 
 
 
-9. 📁 URL Extraction
+7. 📁 URL Extraction
 
 
 
@@ -142,7 +106,7 @@ def execute_url_extraction_in_thread(excel_path, text_path, output_excel_path):
 
 
 
-10. 🔄 Status Update
+8. 🔄 Status Update
 
 
 def update_task_status(task_key, status_text="pending", status_color="gray"):
