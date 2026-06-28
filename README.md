@@ -33,9 +33,6 @@ from pydub import AudioSegment
 2. 📊 Product Classification
 
 def classify_products(description):
-    """
-    Classifies the product description based on registered keywords.
-    """
     desc = str(description).lower()
     for category, keywords in keywords_dict.items():
         if any(keyword in desc for keyword in keywords):
