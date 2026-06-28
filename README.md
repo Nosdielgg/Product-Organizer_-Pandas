@@ -32,13 +32,20 @@ from pydub import AudioSegment
 
 2. 📊 Product Classification
 
-def classify_products(description):
-    desc = str(description).lower()
-    for category, keywords in keywords_dict.items():
-        if any(keyword in desc for keyword in keywords):
-            return category
-    return 'Others'
-
+def processar_em_thread():
+    """Lê o arquivo, classifica os produtos e salva em planilhas separadas."""
+    df = pd.read_excel(caminho_arquivo)
+    coluna_descricao = selecionar_coluna(df)
+    
+    for i, index in enumerate(df.index):
+        df.at[index, 'Categoria'] = classificar_produtos(df.at[index, coluna_descricao])
+        progresso['value'] = i + 1
+        progresso.update()
+    
+    with pd.ExcelWriter(salvar_em) as writer:
+        for categoria in todas_categorias:
+            df_categoria = df[df['Categoria'] == categoria]
+            df_categoria.to_excel(writer, sheet_name=categoria[:31], index=False)
 
 
 
