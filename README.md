@@ -22,114 +22,25 @@ A comprehensive tool for categorizing, processing, and enriching product data in
 
 
 
+<p></p>
+
 
 2. 📊 Product Classification
 
-def processar_em_thread():
-    """Lê o arquivo, classifica os produtos e salva em planilhas separadas."""
-    df = pd.read_excel(caminho_arquivo)
-    coluna_descricao = selecionar_coluna(df)
-    
-    for i, index in enumerate(df.index):
-        df.at[index, 'Categoria'] = classificar_produtos(df.at[index, coluna_descricao])
-        progresso['value'] = i + 1
-        progresso.update()
-    
-    with pd.ExcelWriter(salvar_em) as writer:
-        for categoria in todas_categorias:
-            df_categoria = df[df['Categoria'] == categoria]
-            df_categoria.to_excel(writer, sheet_name=categoria[:31], index=False)
+<img width="577" height="213" alt="image" src="https://github.com/user-attachments/assets/6257e6b3-1c91-48de-962e-528f5254239b" />
+
+<p></p>
+
+3. 🔄 Main Processing
+
+<img width="655" height="325" alt="image" src="https://github.com/user-attachments/assets/d3e21d32-fae5-4641-876c-d6b4917c68cc" />
 
 
+4. 🌐 YouTube Extraction
 
+   <img width="529" height="257" alt="image" src="https://github.com/user-attachments/assets/91a87c1d-e2a2-4666-ace8-c3aed9ac47c6" />
 
-
-   
-4. 🔄 Main Processing
-
-def process_in_thread():
-    """Reads the file, classifies products, and saves to separate sheets."""
-    df = pd.read_excel(file_path)
-    description_column = select_column(df)
-    
-    for i, index in enumerate(df.index):
-        df.at[index, 'Category'] = classify_products(df.at[index, description_column])
-        progress_bar['value'] = i + 1
-        progress_bar.update()
-    
-    with pd.ExcelWriter(save_path) as writer:
-        for category in all_categories:
-            df_category = df[df['Category'] == category]
-            df_category.to_excel(writer, sheet_name=category[:31], index=False)
-
-
-
-
-
-   
-5. 🌐 YouTube Extraction
-
-def get_youtube_embed_url(url):
-    """Extracts YouTube video ID and returns embed URL."""
-    youtube_regex = (
-        r'(https?://)?(www\.)?'
-        r'(youtube|youtu|youtube-nocookie)\.(com|be)/'
-        r'(watch\?v=|embed/|v/|.+\?v=)?([^&=%\?]{11})')
-    match = re.match(youtube_regex, url)
-    if match:
-        video_id = match.group(6)
-        return f"https://www.youtube.com/embed/{video_id}", video_id
-    return None, None
-
-
-
-
-   
-6. 🎬 Video Download
-
-def execute_download_in_thread(df, link_column, destination_folder, playlist_url=None):
-    """Downloads videos using yt-dlp."""
-    ydl_opts = {
-        'outtmpl': os.path.join(destination_folder, '%(title)s.%(ext)s'),
-        'ignoreerrors': True,
-        'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
-    }
-    
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        for video_url in df[link_column]:
-            ydl.download([video_url])
-
-
-
-   
-7. 🎵 Audio Generation (Narration)
-
-def execute_audio_generation_in_thread(text_content, srt_filepath, lang_code, 
-                                      video_filepath, background_music_filepath):
-    """Generates audio narration and combines with video using FFmpeg."""
-    tts = gTTS(text=text_content, lang=lang_code, slow=False)
-    tts.save(temp_speech_audio_file)
-    
-    speech_audio = AudioSegment.from_file(temp_speech_audio_file)
-    
-    if background_music_filepath:
-        background_music = AudioSegment.from_file(background_music_filepath)
-        background_music = background_music[:len(speech_audio)]
-        mixed_audio = background_music.overlay(speech_audio)
-        mixed_audio.export(temp_final_audio_file, format="mp3")
-    
-    # Combine with video using FFmpeg
-    ffmpeg_command = [
-        'ffmpeg', '-i', video_filepath,
-        '-i', audio_input_for_ffmpeg,
-        '-c:v', 'copy', '-map', '0:v:0', '-map', '1:a:0',
-        '-y', output_video_filepath
-    ]
-    subprocess.run(ffmpeg_command, check=True)
-
-
-   
-8. 🖥️ Graphical Interface
+5. 🖥️ Graphical Interface
 
 # Interface with ttkbootstrap
 style = Style(theme="flatly")
