@@ -28,85 +28,16 @@ A comprehensive tool for categorizing, processing, and enriching product data in
 
 6. 📊 HTML Carousel Generation
 
-
-def execute_html_generation_in_thread(media_type, autoplay_delay_ms, save_path, status_key):
-    """Generates HTML file with product carousel."""
-    df = pd.read_excel(file_path)
-    html_items = []
-    
-    for index, row in df.iterrows():
-        name = str(row[product_name_column])
-        description = str(row[description_column])
-        access_link = str(row[access_link_column])
-        
-        # Check if it's YouTube
-        youtube_embed_url, youtube_video_id = get_youtube_embed_url(current_video_link)
-        
-        if youtube_embed_url:
-            media_content = f"""
-                <iframe src="{youtube_embed_url}" frameborder="0" 
-                        allow="accelerometer; autoplay; encrypted-media" 
-                        loading="lazy"></iframe>
-            """
-        
-        item_html = f"""
-            <div class="video-container{' active' if index == 0 else ''}">
-                <div class="media-area">{media_content}</div>
-                <div class="video-description">
-                    <h2>{name}</h2>
-                    <p>{description}</p>
-                    <a href="{access_link}" class="buy-button">Buy</a>
-                </div>
-            </div>
-        """
-        html_items.append(item_html)
-    
-    # Save HTML
-    with open(save_path, "w", encoding="utf-8") as f:
-        f.write(full_html)
-
-
-
-
+<img width="473" height="531" alt="image" src="https://github.com/user-attachments/assets/91602ce9-7bcf-485f-b1a5-14f28634805c" />
 
 7. 📁 URL Extraction
-
-
-
-def execute_url_extraction_in_thread(excel_path, text_path, output_excel_path):
-    """Extracts media URLs from Excel and text/Word files."""
-    # Regex for image URLs
-    image_url_pattern = re.compile(
-        r'https?://[^\s/$.?#].[^\s]*?\.(?:jpg|jpeg|png|gif|bmp|webp|tiff|svg|ico)',
-        re.IGNORECASE
-    )
-    
-    # Regex for video URLs
-    video_url_pattern = re.compile(
-        r'https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/|vimeo\.com/)[^\s]+',
-        re.IGNORECASE
-    )
-    
-    # Read Excel and extract URLs from all columns
-    df_excel_base = pd.read_excel(excel_path)
-    all_image_urls = set()
-    all_video_urls = set()
-    
-    for column in df_excel_base.columns:
-        for item in df_excel_base[column].dropna().astype(str):
-            found_images = image_url_pattern.findall(item)
-            found_videos = video_url_pattern.findall(item)
-            all_image_urls.update(found_images)
-            all_video_urls.update(found_videos)
-    
-    # Save result
-    df_output = pd.concat([df_excel_base, df_extracted_urls], axis=1)
-    df_output.to_excel(output_excel_path, index=False)
+   
+<img width="487" height="501" alt="image" src="https://github.com/user-attachments/assets/68c269ca-69c4-4e5f-9baf-dd800e0ef749" />
 
 
 
 
-8. 🔄 Status Update
+9. 🔄 Status Update
 
 
 def update_task_status(task_key, status_text="pending", status_color="gray"):
